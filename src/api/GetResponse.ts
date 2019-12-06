@@ -159,6 +159,19 @@ export class GetResponse {
         })
     }
 
+    updateContactTags(contactId: string, data: updateContactOptions): Promise<Contact> {
+        let req: any = {}
+        if(!this.isEmpty(data.tags)) req.tags = data.tags
+
+        return this.call({
+            method: "POST",
+            path: `/contacts/${contactId}/tags`,
+            data: req
+        }).then(response => {
+            return response.obj
+        })
+    }
+
     deleteContact(contactId: string): Promise<boolean> {
         return this.call({
             method: "DELETE",

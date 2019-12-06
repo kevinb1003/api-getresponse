@@ -1,4 +1,3 @@
-/// <reference types="bluebird" />
 import * as Promise from "bluebird";
 export interface GetResponseConfig {
     apiKey: string;
@@ -61,7 +60,8 @@ export declare class GetResponse {
     addContact(data: addContactOptions): Promise<boolean>;
     findContactByEmail(email: string): Promise<Contact | null>;
     updateContact(contactId: string, data: updateContactOptions): Promise<Contact>;
+    updateContactTags(contactId: string, data: updateContactOptions): Promise<Contact>;
     deleteContact(contactId: string): Promise<boolean>;
-    private isEmpty(data);
-    private call(callData);
+    private isEmpty;
+    private call;
 }

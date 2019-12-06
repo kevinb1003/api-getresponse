@@ -100,6 +100,18 @@ class GetResponse {
             return response.obj;
         });
     }
+    updateContactTags(contactId, data) {
+        let req = {};
+        if (!this.isEmpty(data.tags))
+            req.tags = data.tags;
+        return this.call({
+            method: "POST",
+            path: `/contacts/${contactId}/tags`,
+            data: req
+        }).then(response => {
+            return response.obj;
+        });
+    }
     deleteContact(contactId) {
         return this.call({
             method: "DELETE",
